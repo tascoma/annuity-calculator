@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 import pandas as pd
-import time_value_money
+import calculator
 
 
 class App(tk.Tk):
@@ -81,9 +81,9 @@ class App(tk.Tk):
 
         annuity_type = self.switch_var.get()
         if annuity_type == "Ordinary":
-            df = time_value_money.ordinary_annuity(n, p, pmt, r)
+            df = calculator.ordinary_annuity(n, p, pmt, r)
         elif annuity_type == "Due":
-            df = time_value_money.annuity_due(n, p, pmt, r)
+            df = calculator.annuity_due(n, p, pmt, r)
         else:
             return
 
