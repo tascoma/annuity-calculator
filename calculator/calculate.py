@@ -13,11 +13,11 @@ def ordinary_annuity(n, p, pmt, r):
         interest_earned = round((r/100) * beg_val, 2)
         row.append(interest_earned)
         row.append(pmt)
-        end_val = beg_val + interest_earned + pmt
+        end_val = round(beg_val + interest_earned + pmt, 2)
         row.append(end_val)
-        contributions = contributions + pmt
+        contributions = round(contributions + pmt, 2)
         row.append(contributions)
-        beg_val = end_val
+        beg_val = round(end_val, 2)
         df.append(row)
     return pd.DataFrame(df, columns=['Period', 'Beginning_Value', 'Interest_Earned', 'Payment', 'Ending_Value', 'Total_Contributions'])
 
@@ -34,10 +34,10 @@ def annuity_due(n, p, pmt, r):
         row.append(pmt)
         interest_earned = round((r/100) * (beg_val + pmt), 2)
         row.append(interest_earned)
-        end_val = beg_val + interest_earned + pmt
+        end_val = round(beg_val + interest_earned + pmt, 2)
         row.append(end_val)
-        contributions = contributions + pmt
+        contributions = round(contributions + pmt, 2)
         row.append(contributions)
-        beg_val = end_val
+        beg_val = round(end_val, 2)
         df.append(row)
     return pd.DataFrame(df, columns=['Period', 'Beginning_Value',  'Payment', 'Interest_Earned', 'Ending_Value', 'Total_Contributions'])
