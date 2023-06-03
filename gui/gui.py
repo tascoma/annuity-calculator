@@ -42,12 +42,12 @@ class App(tk.Tk):
         self.entry_r.grid(row=3, column=1)
 
         # Create a switch to select annuity type
-        self.label_switch = tk.Label(self.frame_inputs, text="Annuity Type:")
+        self.label_switch = ttk.Label(self.frame_inputs, text="Annuity Type:")
         self.switch_var = tk.StringVar()
         self.switch_var.set("Ordinary")
-        self.switch_ordinary = tk.Radiobutton(
+        self.switch_ordinary = ttk.Radiobutton(
             self.frame_inputs, text="Ordinary Annuity", variable=self.switch_var, value="Ordinary")
-        self.switch_due = tk.Radiobutton(
+        self.switch_due = ttk.Radiobutton(
             self.frame_inputs, text="Annuity Due", variable=self.switch_var, value="Due")
 
         self.label_switch.grid(row=4, column=0, sticky="w")
@@ -57,15 +57,15 @@ class App(tk.Tk):
         # Create a frame for the buttons
         self.frame_buttons = ttk.Frame(self)
         self.frame_buttons.grid(row=1, column=2, pady=(
-            0, 10), padx=(0, 10), sticky="ne")
+            0, 10), padx=(0, 10), sticky="se")
 
         # Create a button to calculate the annuity
-        self.button_calculate = tk.Button(
+        self.button_calculate = ttk.Button(
             self.frame_buttons, text="Calculate", command=self.calculate_annuity)
         self.button_calculate.grid(row=0, column=0, pady=10)
 
         # Create a button to export the table to an Excel file
-        self.button_export = tk.Button(
+        self.button_export = ttk.Button(
             self.frame_buttons, text="Export to Excel", command=self.export_to_excel)
         self.button_export.grid(row=0, column=1, pady=10)
 
@@ -98,6 +98,7 @@ class App(tk.Tk):
                               columnspan=2, padx=10, pady=10, sticky="nw")
 
         # Create line chart
+        plt.style.use('seaborn')
         self.fig, self.ax = plt.subplots(figsize=(9, 4))
         self.ax.set_xlabel('Period')
         self.ax.set_ylabel('Value')
