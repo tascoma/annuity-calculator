@@ -1,18 +1,16 @@
 import tkinter as tk
-from tkinter import ttk
+import ttkbootstrap as ttk
 from tkinter import filedialog
-import pandas as pd
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import calculator
 
 
-class App(tk.Tk):
-    def __init__(self):
-        super().__init__()
+class App(ttk.Window):
+    def __init__(self, themename="darkly"):
+        super().__init__(themename="darkly")
         self.title('Annuity Progression')
         self.geometry("1280x720")
-        self.configure(bg='#041E42')
 
         # Create a frame for the labels and entries
         self.frame_inputs = ttk.Frame(self)
@@ -98,7 +96,7 @@ class App(tk.Tk):
                               columnspan=2, padx=10, pady=10, sticky="nw")
 
         # Create line chart
-        plt.style.use('seaborn')
+        plt.style.use('dark_background')
         self.fig, self.ax = plt.subplots(figsize=(9, 4))
         self.ax.set_xlabel('Period')
         self.ax.set_ylabel('Value')
@@ -154,4 +152,3 @@ class App(tk.Tk):
 
         # Save the DataFrame to an Excel file
         self.export_data.to_excel(file_path, index=False)
-        print("Table exported to Excel successfully.")
