@@ -31,9 +31,9 @@ def annuity_due(n, p, pmt, r):
         i += 1
         row.append(i)
         row.append(beg_val)
-        row.append(pmt)
         interest_earned = round((r/100) * (beg_val + pmt), 2)
         row.append(interest_earned)
+        row.append(pmt)
         end_val = round(beg_val + interest_earned + pmt, 2)
         row.append(end_val)
         contributions = round(contributions + pmt, 2)

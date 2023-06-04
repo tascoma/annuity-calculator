@@ -14,9 +14,11 @@ class App(ttk.Window):
         super().__init__(themename="darkly")
         self.title('Annuity Progression')
         self.geometry("1280x720")
+        self.columnconfigure((0,1,2), weight=1)
+        self.rowconfigure((0,1,2), weight=1)
 
         self.frame = ttk.Frame(self)
-        self.frame.grid(row = 0, column=2, columnspan=2, padx=10, pady=10)        
+        self.frame.grid(row=0, column=2, columnspan=2, padx=10, pady=10)
 
         self.inputs = Input(self.frame)
         self.inputs.grid(row=0, column=0, padx=10, pady=10, sticky="nw")
