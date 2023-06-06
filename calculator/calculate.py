@@ -40,4 +40,4 @@ def annuity_due(n, p, pmt, r):
         row.append(contributions)
         beg_val = round(end_val, 2)
         df.append(row)
-    return pd.DataFrame(df, columns=['Period', 'Beginning_Value',  'Payment', 'Interest_Earned', 'Ending_Value', 'Total_Contributions'])
+    return pd.DataFrame(df, columns=['Period', 'Beginning_Value', 'Interest_Earned', 'Payment', 'Ending_Value', 'Total_Contributions'])
